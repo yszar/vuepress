@@ -8,4 +8,3 @@ bgImageStyle: {
   background-position: 'bottom!important',
   }
 ---
-# hello hhhh

@@ -13,7 +13,8 @@ module.exports = {
       }
     },
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    extractHeaders: [ 'h2', 'h3', 'h4' ]
   },
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
@@ -32,12 +33,14 @@ module.exports = {
   themeConfig: {
     type: 'blog',
     authorAvatar: '/touxiang.jpg',
+    // dateFormat: 'YYYY-MM-DD',
     nav: [
       { text: '首页', link: '/', icon: 'reco-home' },
-      { text: 'Python', link: '/python/', icon: 'reco-category' },
-      { text: 'Linux', link: '/linux/', icon: 'reco-category' },
-      { text: '前端', link: '/frontend', icon: 'reco-api' },
-      { text: '时间轴', link: '/timeline/', icon: 'reco-date' }
+      { text: 'Python', link: '/categories/python/', icon: 'reco-category' },
+      { text: 'Linux', link: '/categories/linux/', icon: 'reco-category' },
+      { text: '前端', link: '/categories/frontend', icon: 'reco-api' },
+      { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
+      { text: '关于本站', link: '/about/', icon: 'reco-document' },
     ],
     // sidebar: [
       // '/',
@@ -54,7 +57,7 @@ module.exports = {
     sidebar: 'auto',
     author: '九阳',
     huawei: true,
-    lastUpdated: 'Last Updated',
+    lastUpdated: '上次更新',
     plugins: ['@vuepress/medium-zoom'],
     repo: 'yszar/vuepress',
     // repoLabel: '查看源码',
@@ -67,10 +70,16 @@ module.exports = {
     // 默认是 false, 设置为 true 来启用
     editLinks: true,
     // 默认为 "Edit this page"
-    editLinkText: '编辑本页',
+    editLinkText: '在 GitHub 上编辑此页',
     // 页面滚动
     smoothScroll: true,
     friendLink: [
+      {
+        title: '在线工具',
+        desc: '免费提供各种在线工具！',
+        email: '56312233@qq.com',
+        link: 'https://oltools.net'
+      },
       {
         title: 'vuepress-theme-reco',
         desc: 'A simple and beautiful vuepress Blog & Doc theme.',
