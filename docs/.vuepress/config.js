@@ -12,12 +12,12 @@ module.exports = {
         text: 'Tag'      // 默认文案 “标签”
       }
     },
-  base: '/blog/',
   markdown: {
     lineNumbers: true
   },
   head: [
-    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
+    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
+    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `/favicon.ico` }]
   ],
   locales: {
     // 键名是该语言所属的子路径
