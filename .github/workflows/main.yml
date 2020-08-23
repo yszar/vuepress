@@ -37,8 +37,8 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.4
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ALI_HK_PEM }}
-          ARGS: "-avzr --delete"
+          ARGS: "-avz --delete"
           SOURCE: "docs/.vuepress/dist/"
-          REMOTE_HOST: "47.242.67.157"
+          REMOTE_HOST: ${{ secrets.ALI_HK_IP }}
           REMOTE_USER: "root"
           TARGET: "/web/tangjiuyang"
