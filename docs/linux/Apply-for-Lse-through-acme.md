@@ -15,8 +15,8 @@ Let's Encrypt 已经可以申请通配符证书了，详细通过 acme.sh 申请
 
 <!-- more -->
 
-# 申请 Let’s Encrypt通配符证书步骤
-## 升级 acme.sh
+## 申请 Let’s Encrypt通配符证书步骤
+### 升级 acme.sh
 ```shell
 acme.sh –upgrade
 ```
