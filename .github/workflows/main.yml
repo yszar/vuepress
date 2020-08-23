@@ -31,3 +31,14 @@ jobs:
             #ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: docs/.vuepress/dist
+
+      # Deploy
+      - name: Send
+        uses: easingthemes/ssh-deploy@v2.1.4
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ALI_HK_PEM }}
+          ARGS: "-avz --delete"
+          SOURCE: "docs/.vuepress/dist/"
+          REMOTE_HOST: "123.57.236.141"
+          REMOTE_USER: "root"
+          TARGET: "/web/tangjiuyang"
