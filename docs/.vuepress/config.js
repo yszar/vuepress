@@ -1,37 +1,48 @@
+const autometa_options = {
+    site: {
+        name   : 'yszar',
+        twitter: 'yszar',
+    },
+    canonical_base: 'https://tangjiuyang.com',
+};
+
 module.exports = {
     title: '九阳的博客',
     description: 'In me the tiger sniffs the rose.',
     theme: 'reco',
     plugins: [
-        [
-            'pangu'
-        ],
-        [
-            'reading-progress'
-        ],
-        [
-            'img-lazy'
-        ],
+        ['pangu'],
+        ['reading-progress'],
+        // 自动meta
+        [ 'autometa', autometa_options ],
+        // 进度条插件
+        ['vuepress-plugin-nprogress'],
+        // 懒加载插件
+        ['img-lazy'],
+        // 百度统计
         ['vuepress-plugin-baidu-tongji-analytics', {
             key: '41ab901a72ed35133011901f6333f003',
             dev: true
         }],
+        // SEO插件
         ['vuepress-plugin-baidu-autopush'],
-        ['vuepress-plugin-code-copy', true],
+        // 代码复制按钮
+        // ['vuepress-plugin-code-copy', true],
+        // 代码复制成功
         ["vuepress-plugin-nuggets-style-copy", {
             copyText: "复制代码",
             tip: {
                 content: "复制成功!"
             }
         }],
-        ['@vuepress/pwa', {
-            serviceWorker: true,
-            updatePopup: {
-                message: "发现新内容可用",
-                buttonText: "刷新"
-            }
-        }],
-        // ['@vuepress/pwa'],
+        // ['@vuepress/pwa', {
+        //     serviceWorker: true,
+        //     updatePopup: {
+        //         message: "发现新内容可用",
+        //         buttonText: "刷新"
+        //     }
+        // }],
+        // 图片缩放
         [
             '@vuepress/medium-zoom', {
             selector: ".page img",
@@ -42,26 +53,30 @@ module.exports = {
             }
         }
         ],
+        // google统计
         [
             '@vuepress/google-analytics',
             {
                 'ga': 'UA-126970002-4' // UA-00000000-0
             }
         ],
+        // sitemap生成
         [
             'sitemap', {
             "hostname": 'https://tangjiuyang.com',
             "exclude": ['/404.html'],
         }
         ],
-        [
-            'copyright',
-            {
-                noCopy: true, // 选中的文字将无法被复制
-                minLength: 100, // 如果长度超过 100 个字符
-                clipboardComponent: "请注明文章出处, [九阳博客](https://tangjiuyang.com)"
-            },
-        ],
+        // 复制版权
+        // [
+        //     'copyright',
+        //     {
+        //         noCopy: true, // 选中的文字将无法被复制
+        //         minLength: 100, // 如果长度超过 100 个字符
+        //         // clipboardComponent: "请注明文章出处, [九阳博客](https://tangjiuyang.com)"
+        //     },
+        // ],
+        // 最后更新时间
         [
             '@vuepress/last-updated',
             {
