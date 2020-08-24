@@ -2,16 +2,78 @@ module.exports = {
     title: '九阳的博客',
     description: 'In me the tiger sniffs the rose.',
     theme: 'reco',
-    blogConfig: {
-        category: {
-            location: 2,     // 在导航栏菜单中所占的位置，默认2
-            text: 'Category' // 默认文案 “分类”
-        },
-        tag: {
-            location: 3,     // 在导航栏菜单中所占的位置，默认3
-            text: 'Tag'      // 默认文案 “标签”
+    plugins: [
+        [
+            'pangu'
+        ],
+        [
+            'reading-progress'
+        ],
+        [
+            'img-lazy'
+        ],
+        ['vuepress-plugin-baidu-tongji-analytics', {
+            key: '41ab901a72ed35133011901f6333f003',
+            dev: true
+        }],
+        ['vuepress-plugin-baidu-autopush'],
+        ['vuepress-plugin-code-copy', true],
+        ["vuepress-plugin-nuggets-style-copy", {
+            copyText: "复制代码",
+            tip: {
+                content: "复制成功!"
+            }
+        }],
+        ['@vuepress/pwa', {
+            serviceWorker: true,
+            updatePopup: {
+                message: "发现新内容可用",
+                buttonText: "刷新"
+            }
+        }],
+        // ['@vuepress/pwa'],
+        [
+            '@vuepress/medium-zoom', {
+            selector: ".page img",
+            options: {
+                margin: 16,
+                background: "#202124de",
+                scrollOffset: 0
+            }
         }
-    },
+        ],
+        [
+            '@vuepress/google-analytics',
+            {
+                'ga': 'UA-126970002-4' // UA-00000000-0
+            }
+        ],
+        [
+            'sitemap', {
+            "hostname": 'https://tangjiuyang.com',
+            "exclude": ['/404.html'],
+        }
+        ],
+        [
+            'copyright',
+            {
+                noCopy: true, // 选中的文字将无法被复制
+                minLength: 100, // 如果长度超过 100 个字符
+                clipboardComponent: "请注明文章出处, [九阳博客](https://tangjiuyang.com)"
+            },
+        ],
+        [
+            '@vuepress/last-updated',
+            {
+                transformer: (timestamp, lang) => {
+                    // 不要忘了安装 moment
+                    const moment = require('moment')
+                    moment.locale(lang)
+                    return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
+                    // return moment(timestamp).toString()
+                },
+            }],
+    ],
     markdown: {
         lineNumbers: true,
         extractHeaders: ['h2', 'h3', 'h4'],
@@ -66,6 +128,16 @@ module.exports = {
         }
     },
     themeConfig: {
+        blogConfig: {
+            category: {
+                location: 2,     // 在导航栏菜单中所占的位置，默认2
+                text: 'Category' // 默认文案 “分类”
+            },
+            tag: {
+                location: 3,     // 在导航栏菜单中所占的位置，默认3
+                text: 'Tag'      // 默认文案 “标签”
+            }
+        },
         type: 'blog',
         authorAvatar: '/touxiang.jpg',
         dateFormat: 'YYYY-MM-DD HH:mm:ss',
@@ -94,78 +166,7 @@ module.exports = {
         author: '九阳',
         huawei: true,
         lastUpdated: '上次更新',
-        plugins: [
-            [
-                'pangu'
-            ],
-            [
-                'reading-progress'
-            ],
-            [
-                'img-lazy'
-            ],
-            ['vuepress-plugin-baidu-tongji-analytics', {
-                key: '41ab901a72ed35133011901f6333f003',
-                dev: true
-            }],
-            ['vuepress-plugin-baidu-autopush'],
-            ['vuepress-plugin-code-copy', true],
-                ["vuepress-plugin-nuggets-style-copy", {
-                copyText: "复制代码",
-                tip: {
-                    content: "复制成功!"
-                }
-            }],
-            ['@vuepress/pwa', {
-                serviceWorker: true,
-                updatePopup: {
-                    message: "发现新内容可用",
-                    buttonText: "刷新"
-                }
-            }],
-            // ['@vuepress/pwa'],
-            [
-                '@vuepress/medium-zoom', {
-                selector: ".page img",
-                options: {
-                    margin: 16,
-                    background: "#202124de",
-                    scrollOffset: 0
-                }
-            }
-            ],
-            [
-                '@vuepress/google-analytics',
-                {
-                    'ga': 'UA-126970002-4' // UA-00000000-0
-                }
-            ],
-            [
-                'sitemap', {
-                "hostname": 'https://tangjiuyang.com',
-                "exclude": ['/404.html'],
-            }
-            ],
-            [
-                'copyright',
-                {
-                    noCopy: true, // 选中的文字将无法被复制
-                    minLength: 100, // 如果长度超过 100 个字符
-                    clipboardComponent: "请注明文章出处, [九阳博客](https://tangjiuyang.com)"
-                },
-            ],
-            [
-                '@vuepress/last-updated',
-                {
-                    transformer: (timestamp, lang) => {
-                        // 不要忘了安装 moment
-                        const moment = require('moment')
-                        moment.locale(lang)
-                        // return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
-                        return moment(timestamp).fromNow()
-                    },
-                }],
-        ],
+
         repo: 'yszar/vuepress',
         // repoLabel: '查看源码',
         // 假如你的文档仓库和项目本身不在一个仓库：
