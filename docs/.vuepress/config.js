@@ -14,7 +14,10 @@ module.exports = {
     },
     markdown: {
         lineNumbers: true,
-        extractHeaders: ['h2', 'h3', 'h4']
+        extractHeaders: ['h2', 'h3', 'h4'],
+        externalLinks: {
+            target: '_blank', rel: 'noopener noreferrer'
+        }
     },
     head: [
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
@@ -23,7 +26,7 @@ module.exports = {
             var _hmt = _hmt || [];
             (function() {
             var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?41ab901a72ed35133011901f6333f003
+            hm.src = "https://hm.baidu.com/hm.js?41ab901a72ed35133011901f6333f003";
             var s = document.getElementsByTagName("script")[0]; 
             s.parentNode.insertBefore(hm, s);
 
@@ -92,7 +95,9 @@ module.exports = {
         huawei: true,
         lastUpdated: '上次更新',
         plugins: [
-            ["vuepress-plugin-nuggets-style-copy", {
+            ['vuepress-plugin-baidu-autopush'],
+            ['vuepress-plugin-code-copy', true],
+                ["vuepress-plugin-nuggets-style-copy", {
                 copyText: "复制代码",
                 tip: {
                     content: "复制成功!"
@@ -126,10 +131,15 @@ module.exports = {
                 'sitemap', {
                 "hostname": 'https://tangjiuyang.com',
                 "exclude": ['/404.html'],
-                "dateFormatter": time => {
-                    return time
-                }
             }
+            ],
+            [
+                'copyright',
+                {
+                    noCopy: true, // 选中的文字将无法被复制
+                    minLength: 100, // 如果长度超过 100 个字符
+                    clipboardComponent: "请注明文章出处, [九阳博客](https://tangjiuyang.com)"
+                },
             ],
             [
                 '@vuepress/last-updated',
