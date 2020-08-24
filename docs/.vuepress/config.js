@@ -22,28 +22,28 @@ module.exports = {
     head: [
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
         ['link', {rel: 'shortcut icon', type: "image/x-icon", href: `/favicon.ico`}],
-        ['script', {}, `
-            var _hmt = _hmt || [];
-            (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?41ab901a72ed35133011901f6333f003";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-
-            // 引入谷歌,不需要可删除这段
-            var hm1 = document.createElement("script");
-            hm1.src = "https://www.googletagmanager.com/gtag/js?id=UA-126970002-4";
-            var s1 = document.getElementsByTagName("script")[0]; 
-            s1.parentNode.insertBefore(hm1, s1);
-            })();
-
-            // 谷歌加载,不需要可删除
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-126970002-4');
-        `]
+        // ['script', {}, `
+        //     var _hmt = _hmt || [];
+        //     (function() {
+        //     var hm = document.createElement("script");
+        //     hm.src = "https://hm.baidu.com/hm.js?41ab901a72ed35133011901f6333f003";
+        //     var s = document.getElementsByTagName("script")[0];
+        //     s.parentNode.insertBefore(hm, s);
+        //
+        //     // 引入谷歌,不需要可删除这段
+        //     var hm1 = document.createElement("script");
+        //     hm1.src = "https://www.googletagmanager.com/gtag/js?id=UA-126970002-4";
+        //     var s1 = document.getElementsByTagName("script")[0];
+        //     s1.parentNode.insertBefore(hm1, s1);
+        //     })();
+        //
+        //     // 谷歌加载,不需要可删除
+        //     window.dataLayer = window.dataLayer || [];
+        //     function gtag(){dataLayer.push(arguments);}
+        //     gtag('js', new Date());
+        //
+        //     gtag('config', 'UA-126970002-4');
+        // `]
     ],
     locales: {
         // 键名是该语言所属的子路径
@@ -95,6 +95,19 @@ module.exports = {
         huawei: true,
         lastUpdated: '上次更新',
         plugins: [
+            [
+                'pangu'
+            ],
+            [
+                'reading-progress'
+            ],
+            [
+                'img-lazy'
+            ],
+            ['vuepress-plugin-baidu-tongji-analytics', {
+                key: '41ab901a72ed35133011901f6333f003',
+                dev: true
+            }],
             ['vuepress-plugin-baidu-autopush'],
             ['vuepress-plugin-code-copy', true],
                 ["vuepress-plugin-nuggets-style-copy", {
