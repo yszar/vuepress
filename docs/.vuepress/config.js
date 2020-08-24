@@ -83,7 +83,7 @@ module.exports = {
     },
     head: [
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
-        ['link', {rel: 'shortcut icon', type: "image/x-icon", href: `/favicon.ico`}],
+        ['link', {rel: 'shortcut icon', type: "image/x-icon", href: `https://oss.tangjiuyang.com/article_picicons8-t-64.ico`}],
         // ['script', {}, `
         //     var _hmt = _hmt || [];
         //     (function() {
@@ -139,7 +139,7 @@ module.exports = {
             }
         },
         type: 'blog',
-        authorAvatar: '/touxiang.jpg',
+        authorAvatar: 'https://oss.tangjiuyang.com/article_pictouxiang.jpg',
         dateFormat: 'YYYY-MM-DD HH:mm:ss',
         activeHeaderLinks: false,
         nav: [
